@@ -3,9 +3,9 @@ name: NASA Project CI
 #! Quando o workflow irá funcionar
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 #! O que o programa vai rodar
 jobs:
   build:
