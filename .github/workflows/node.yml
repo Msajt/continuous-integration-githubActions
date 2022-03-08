@@ -9,7 +9,7 @@ on:
 #! O que o programa vai rodar
 jobs:
   build:
-    runs-on: windows-latest-2022
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.JS version 16
