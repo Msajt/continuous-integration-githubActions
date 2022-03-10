@@ -10,9 +10,11 @@ COPY package*.json ./
 #? --only=prodution (só baixa os dependencies)
 COPY client/package*.json client/
 RUN npm run install-client --only=production
+
 #? --only=prodution (só baixa os dependencies)
 COPY server/package*.json server/
 RUN npm run install-server --only=production
+
 #? Iniciando client
 COPY client/ client/
 RUN npm run build --prefix client
