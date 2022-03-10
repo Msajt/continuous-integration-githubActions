@@ -5,12 +5,19 @@ FROM node:lts-alpine
 WORKDIR /app
 
 #? From (here) -> To (/app)
-COPY . .
+COPY package*.json ./
 
 #? --only=prodution (só baixa os dependencies)
-RUN npm install --only=production
+COPY client/package*.json client/
+RUN npm run install-client --only=production
+#? --only=prodution (só baixa os dependencies)
+COPY server/package*.json server/
+RUN npm run install-server --only=production
 #? Iniciando client
+COPY client/ client/
 RUN npm run build --prefix client
+
+COPY server/ server/
 
 #? Permissões do app
 USER node
